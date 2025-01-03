@@ -32,16 +32,24 @@ const diceRoll = function () {
             player = 2;
             cpOne = 0;
             diceValue = 0;
+            playerOne.classList.remove('player--active');
         }
         cpOne = cpOne + diceValue;
         console.log(typeof cpOne, typeof diceValue);
+        if (!playerOne.classList.contains('player--active')) {
+            playerOne.classList.add('player--active');
+        }
     } else if (player === 2) {
         if (diceValue == 1) {
             player = 1;
             cpTwo = 0;
             diceValue = 0;
+            playerTwo.classList.remove('player--active')
         }
         cpTwo = cpTwo + diceValue;
+        if (!playerTwo.classList.contains('player--active')) {
+            playerTwo.classList.add('player--active');
+        }
       
     }
     currentOne.textContent = cpOne;
@@ -58,6 +66,11 @@ buttonHold.addEventListener('click', function () {
         }
         cpOne = 0;
         player = 2;
+        playerOne.classList.remove('player--active')
+        if (!playerTwo.classList.contains('player--active')) {
+            playerTwo.classList.add('player--active');
+        }
+        
     }
     else {
         playerScoreTwo = playerScoreTwo + cpTwo;
@@ -66,6 +79,11 @@ buttonHold.addEventListener('click', function () {
         }
         cpTwo = 0;
         player = 1;
+        playerTwo.classList.remove('player--active')
+        if (!playerOne.classList.contains('player--active')) {
+            playerOne.classList.add('player--active');
+        }
+    
     }
     scoreOne.textContent = playerScoreOne;
     scoreTwo.textContent = playerScoreTwo;
