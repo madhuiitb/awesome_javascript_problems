@@ -14,6 +14,7 @@ const buttonHold = document.querySelector('.btn--hold');
 const playerOne = document.querySelector('.player--0');
 const playerTwo = document.querySelector('.player--1');
 
+dice.classList.add('hidden');
 
 let cpOne = 0;
 let cpTwo = 0;
@@ -25,6 +26,9 @@ scoreTwo.textContent = playerScoreTwo;
 
 const diceRoll = function () {
     let diceValue = Math.floor(Math.random() * 6) + 1;
+   
+        dice.classList.remove('hidden');
+    
     console.log('button roll cliked', dice.src = `dice-${diceValue}.png`, diceValue);
    
     if (player === 1) {
